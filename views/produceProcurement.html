@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Produce Procurement</title>
+    
+    <link rel="stylesheet" href="/bootstrap-5.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrap-5.3.5-dist/js/bootstrap.js">
+
+    <link rel="stylesheet" href="../css/bootstrap-5.3.3-dist/css/produce-procurement.css">
+
+
+  </head>
+  `
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Karibu Groceries Ltd</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" id="offcanvasNavbar">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">KGL</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="produce-procurement.html">Produce Procurement</a></li>
+            <li class="nav-item"><a class="nav-link" href="stock.html">Stock</a></li>
+            <li class="nav-item"><a class="nav-link" href="deffered-payments.html">Deferred Payments</a></li>
+            <li class="nav-item"><a class="nav-link" href="sales.html">Sales</a></li>
+            <li class="nav-item"><a class="nav-link" href="manager-dashboard.html">Manager's Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacts.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Record Produce Procurement</h1>
+      <form action="" class="p-4 shadow-lg rounded bg-light">
+        <div class="mb-3">
+          <label for="Pname" class="form-label">Produce Name:</label>
+          <input type="text" id="Pname" name="Pname" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+          <label for="Tproduce" class="form-label">Type of Produce:</label>
+          <input
+            type="text"
+            id="Tproduce"
+            name="Tproduce"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="datePicker" class="form-label"
+            >Date of Procurement:</label
+          >
+          <input
+            type="date"
+            id="datePicker"
+            name="Dprocurement"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="timePicker" class="form-label"
+            >Time of Procurement:</label
+          >
+          <input
+            type="time"
+            id="timePicker"
+            name="Tprocurement"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="tonnage" class="form-label">Tonnage(kg):</label>
+          <input type="text" id="tonnage" name="tonnage" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+          <label for="Sprice" class="form-label">Cost in UgX:</label>
+          <input type="text" id="cost" name="cost" class="form-control" />
+        </div>
+        <div class="mb-3">
+          <label for="customerName" class="form-label">Dealer's Name:</label>
+          <input
+            type="text"
+            id="dealerName"
+            name="dealerName"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="customerContact" class="form-label">
+            Dealer's Contact:</label
+          >
+          <input
+            type="text"
+            id="dealerContact"
+            name="dealerContact"
+            class="form-control"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="autoSizingSelect" class="form-label">Branch Name:</label>
+          <select class="form-select" id="autoSizingSelect" name="branchName">
+            <option selected>Choose...</option>
+            <option value="Maganjo">Maganjo</option>
+            <option value="Matugga">Matugga</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="Psold" class="form-label"
+            >Price to be sold At (Ugx):</label
+          >
+          <input type="text" id="Psold" name="Psold" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary w-100">
+          Record Procurement
+        </button>
+      </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="../javascript-index/js/bootstrap.js"></script>
+  </body>
+</html>

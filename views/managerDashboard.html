@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Manager's Dashboard</title>
+
+    <!-- Linking to our boostrap -->
+    <link
+      rel="stylesheet"
+      href="../css/bootstrap-5.3.3-dist/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../css/bootstrap-5.3.3-dist/css/managerDashboard.css"
+    />
+  </head>
+  <body>
+    <div class="">
+      <h1>Dashboard</h1>
+      <p>
+        Overview of procurements, sales, invetory status, and notifications for
+        out-of-stock items.
+      </p>
+
+      <div class="row mb-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+              <h5>Total Procurements</h5>
+              <p>15,000kg</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card text-white bg-success mb-3">
+            <div class="card-body">
+              <h5>Total Sales</h5>
+              <p>10,000kg</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card text-white bg-warning mb-3">
+            <div class="card-body">
+              <h5>Low Stock Alerts</h5>
+              <p>5</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <div class="card text-white bg-danger mb-3">
+            <div class="card-body">
+              <h5>Out of Stock Items</h5>
+              <p>3</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p>Recent Procurements</p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Produce Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Tonnage(kg)</th>
+          <th scope="col">Cost(UGX)</th>
+          <th scope="col">Dealer Name</th>
+          <th scope="col">Branch</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Maize</td>
+          <td>Grain</td>
+          <td>3000</td>
+          <td>2000,000</td>
+          <td>Sseka</td>
+          <td>Maganjo</td>
+          <td>2025-02-09</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Beans</td>
+          <td>Grain</td>
+          <td>2000</td>
+          <td>150,000</td>
+          <td>Kigere</td>
+          <td>Matugga</td>
+          <td>2025-02-06</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Soya</td>
+          <td>Grain</td>
+          <td>1000</td>
+          <td>350,000</td>
+          <td>Mwebe</td>
+          <td>Matugga</td>
+          <td>202502-13</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Recent Sales</p>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Tonnage(kg)</th>
+          <th scope="col">Amount Paid(shs)</th>
+          <th scope="col">Buyer's Name</th>
+          <th scope="col">Sales Agent</th>
+          <th scope="col">Branch</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Soybeans</td>
+          <td>2000</td>
+          <td>1000,000</td>
+          <td>Sarah</td>
+          <td>Alex</td>
+          <td>Matugga</td>
+          <td>1015-02-10</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Cow Peas</td>
+          <td>3000</td>
+          <td>2000,000</td>
+          <td>Kanyana</td>
+          <td>James</td>
+          <td>Maganjo</td>
+          <td>2025-02-14</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script src="../css/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../javascript-index/js/managerDashboard.js"></script>
+  </body>
+</html>

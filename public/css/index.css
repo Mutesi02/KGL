@@ -1,0 +1,119 @@
+
+body {
+  background-color: #f4fff4;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.navbar {
+  background-color: #004d00 !important;
+}
+
+.navbar-brand,
+.nav-link {
+  color: white !important;
+}
+
+.nav-link:hover {
+  color: #b5ffb5 !important;
+}
+
+.container {
+  margin-top: 80px;
+  text-align: center;
+}
+
+#welcome {
+  margin-bottom: 40px;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+#welcome p:first-child {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #004d00;
+}
+
+#welcome p:last-child {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-inner img {
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.auth-buttons {
+  margin-top: 20px;
+}
+
+.auth-buttons .btn {
+  margin: 0 10px;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-weight: 500;
+}
+
+.btn-signin {
+  background-color: #004d00;
+  color: white;
+}
+
+.btn-signup {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-signup:hover,
+.btn-signin:hover {
+  opacity: 0.85;
+}
+
+.carousel-caption {
+  bottom: 20%;
+}
+
+.carousel-text {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: rgba(0, 77, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+  animation: fadeText 1.5s ease-in-out;
+}
+
+@keyframes fadeText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-desc {
+  font-size: 1rem;
+  max-width: 700px;
+  margin: 10px auto 0;
+  color: #f8f9fa;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 12px 20px;
+  border-radius: 10px;
+  line-height: 1.6;
+  animation: fadeText 1.8s ease-in-out;
+}

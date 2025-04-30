@@ -1,0 +1,54 @@
+meta(charset="utf-8")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+meta(name="viewport", content="width=device-width,initial-scale=1")
+title Contact Us
+//  Linking to our boostrap 
+link(rel="stylesheet", href="../css/bootstrap-5.3.3-dist/css/bootstrap.css")
+link(rel="stylesheet", href="../css/bootstrap-5.3.3-dist/css/contact.css")
+link(rel="stylesheet", href="/bootstrap-5.3.5-dist/css/bootstrap.css")
+link(rel="stylesheet", href="/bootstrap-5.3.5-dist/js/bootstrap.js")
+nav.navbar.navbar-expand-lg.bg-body-tertiary.fixed-top
+  .container-fluid
+    a.navbar-brand(href="#") Karibu Groceries Ltd
+    button.navbar-toggler(type="button", data-bs-toggle="offcanvas", data-bs-target="#offcanvasNavbar")
+      span.navbar-toggler-icon
+    .offcanvas.offcanvas-end#offcanvasNavbar
+      .offcanvas-header
+        h5.offcanvas-title KGL
+        button.btn-close(type="button", data-bs-dismiss="offcanvas")
+      .offcanvas-body
+        ul.navbar-nav.ms-auto
+          li.nav-item
+            a.nav-link(href="../index.html") Home
+          li.nav-item
+            a.nav-link(href="login.html") Login
+          li.nav-item
+            a.nav-link(href="produce-procurement.html") Produce Procurement
+          li.nav-item
+            a.nav-link(href="stock.html") Stock
+          li.nav-item
+            a.nav-link(href="deffered-payments.html") Deferred Payments
+          li.nav-item
+            a.nav-link(href="sales.html") Sales
+          li.nav-item
+            a.nav-link(href="manager-dashboard.html") Manager's Dashboard
+          li.nav-item
+            a.nav-link(href="contacts.html") Contact
+.container
+  h2 Contact Us
+  p Feel free to reach out to us for any inquiries.
+  form#contactForm
+    label(for="name") Name:
+    input#name(type="text", name="name", required)
+    label(for="email") Email:
+    input#email(type="email", name="email", required)
+    label(for="message") Message:
+    textarea#message(name="message", required)
+    button(type="submit") Send Message
+  #responseMessage
+  .contact-info
+    h3 Our Address
+    p 123 Market Street, Kampala, Uganda
+    p Phone: +256 700 123 456
+    p Email: info@karibugroceries.com
+script(src="../javascript-index/js/bootstrap.js")

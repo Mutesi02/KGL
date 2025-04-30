@@ -1,0 +1,175 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title Manager&apos;s Dashboard
+    // Linking to our bootstrap
+    link(rel="stylesheet", href="/css/managerDashboard.css")
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css", rel="stylesheet")
+    style.
+      .btn-custom-green {
+        background-color: #004d00;  /* Custom Green */
+        color: white;
+        border: none;
+      }
+      .btn-custom-green:hover {
+        opacity: 0.9;
+      }
+      .card.bg-success {
+        background-color: #004d00 !important;
+      }
+      /* Improve Table Styles */
+      .table th, .table td {
+        padding: 12px; /* Increased padding */
+        text-align: left;
+      }
+      .table th {
+        background-color: #f8f9fa;
+        color: #333;
+      }
+      .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+      }
+      .table-hover tbody tr:hover {
+        background-color: #e2e6ea;
+      }
+      .table td, .table th {
+        vertical-align: middle;
+      }
+
+  body
+    nav.navbar.bg-body-tertiary.fixed-top
+      .container-fluid
+        a.navbar-brand(href='#') Karibu Groceries Ltd
+        button.navbar-toggler(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasNavbar' aria-controls='offcanvasNavbar' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #offcanvasNavbar.offcanvas.offcanvas-end(tabindex='-1' aria-labelledby='offcanvasNavbarLabel')
+          .offcanvas-header
+            h5#offcanvasNavbarLabel.offcanvas-title KGL
+            button.btn-close(type='button' data-bs-dismiss='offcanvas' aria-label='Close')
+          .offcanvas-body
+            ul.navbar-nav.justify-content-end.flex-grow-1.pe-3
+              li.nav-item
+                a.nav-link.active(aria-current='page' href='') Home
+              li.nav-item
+                a.nav-link(href='/#') Produce Procurement
+              li.nav-item
+                a.nav-link(href='/stock') Stock
+              li.nav-item
+                a.nav-link(href='/login') Login
+              li.nav-item
+                a.nav-link(href='/sales') Sales
+              li.nav-item
+                a.nav-link(href='/#') Deffered Payments
+              li.nav-item
+                a.nav-link(href='/managersdash') Manager&apos;s Dashboard
+              li.nav-item
+                a.nav-link(href='/#') Contact
+              li.nav-item
+                a.nav-link(href='/') Logout
+            form.d-flex.mt-3(role='search')
+              input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
+              button.btn.btn-outline-success(type='submit') Search
+
+    div
+      h1 Dashboard
+      p Overview of procurements, sales, inventory status, and notifications for out-of-stock items.
+
+      .row.mb-4
+        .col-lg-3.col-md-6
+          .card.text-white.bg-primary.mb-3
+            .card-body
+              h5 Total Procurements
+              p 15,000kg
+        .col-lg-3.col-md-6
+          .card.text-white.bg-success.mb-3
+            .card-body
+              h5 Total Sales
+              p 10,000kg
+        .col-lg-3.col-md-6
+          .card.text-white.bg-warning.mb-3
+            .card-body
+              h5 Low Stock Alerts
+              p 5
+        .col-lg-3.col-md-6
+          .card.text-white.bg-danger.mb-3
+            .card-body
+              h5 Out of Stock Items
+              p 3
+
+      p Recent Procurements
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th(scope='col') #
+            th(scope='col') Produce Name
+            th(scope='col') Type
+            th(scope='col') Tonnage(kg)
+            th(scope='col') Cost(UGX)
+            th(scope='col') Dealer Name
+            th(scope='col') Branch
+            th(scope='col') Date
+        tbody
+          tr
+            th(scope='row') 1
+            td Maize
+            td Grain
+            td 3000
+            td 2,000,000
+            td Sseka
+            td Maganjo
+            td 2025-02-09
+          tr
+            th(scope='row') 2
+            td Beans
+            td Grain
+            td 2000
+            td 150,000
+            td Kigere
+            td Matugga
+            td 2025-02-06
+          tr
+            th(scope='row') 3
+            td Soya
+            td Grain
+            td 1000
+            td 350,000
+            td Mwebe
+            td Matugga
+            td 202502-13
+
+      p Recent Sales
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th(scope='col') #
+            th(scope='col') Product Name
+            th(scope='col') Tonnage(kg)
+            th(scope='col') Amount Paid(shs)
+            th(scope='col') Buyer&apos;s Name
+            th(scope='col') Sales Agent
+            th(scope='col') Branch
+            th(scope='col') Date
+        tbody
+          tr
+            th(scope='row') 1
+            td Soybeans
+            td 2000
+            td 1,000,000
+            td Sarah
+            td Alex
+            td Matugga
+            td 1015-02-10
+          tr
+            th(scope='row') 2
+            td Cow Peas
+            td 3000
+            td 2,000,000
+            td Kanyana
+            td James
+            td Maganjo
+            td 2025-02-14
+
+    script(src="/js/managerDashboard.js")
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")
