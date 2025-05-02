@@ -64,7 +64,7 @@ button {
 }
 
 .pay-now {
-    background-color: #4CAF50;
+    background-color: #004d00 !important;  /* Green background for Pay Now button */
     color: white;
 }
 
@@ -113,7 +113,7 @@ input {
 }
 
 button[type="submit"] {
-    background-color: #4CAF50;
+    background-color: #004d00 !important;  /* Green background for Submit button */
     color: white;
     margin-top: 20px;
     padding: 12px;
@@ -121,4 +121,26 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     opacity: 0.8;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #004d00 !important;
+    padding: 15px;
+}
+
+.navbar a,
+.navbar li,
+.navbar span,
+.navbar h1,
+.navbar h2,
+.navbar h3 {
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color: #cccccc !important;
 }

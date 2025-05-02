@@ -42,67 +42,67 @@ html
 
     .container.mt-5.pt-5
       h1.text-center.mb-4 Produce
-      form#myForm.p-4.shadow-lg.rounded.bg-light(action='/addStock' method="post" onsubmit='ValidityForm(event)' enctype='multipart/form-data')
+      form#myForm.p-4.shadow-lg.rounded.bg-light(action='/updateStock/'+stock._id method="post" onsubmit='ValidityForm(event)' enctype='multipart/form-data')
         .mb-3
           label.form-label(for='Pname') Produce Name:
-          input#Pname.form-control(type='text' name='pname')
+          input#Pname.form-control(type='text' name='pname' value=stock.pname)
           span.text-danger#produce-error
 
         .mb-3
           label.form-label(for='Tproduce') Type of Produce:
-          input#Tproduce.form-control(type='text' name='tproduce')
+          input#Tproduce.form-control(type='text' name='tproduce' value=stock.tproduce)
           span.text-danger#type-error
 
         .mb-3
           label.form-label(for='datePicker') Date of product input:
-          input#datePicker.form-control(type='date' name='dproduct')
+          input#datePicker.form-control(type='date' name='dproduct' value=stock.dproduct)
           span.text-danger#date-error
 
         .mb-3
           label.form-label(for='timePicker') Time of product input:
-          input#timePicker.form-control(type='time' name='tproduct')
+          input#timePicker.form-control(type='time' name='tproduct' value=stock.tproduct)
           span.text-danger#time-error
 
         .mb-3
           label.form-label(for='Qsold') Quantity of product input (kg):
-          input#Qsold.form-control(type='number' name='qproduct')
+          input#Qsold.form-control(type='number' name='qproduct' value=stock.qproduct)
           span.text-danger#quantity-error
 
         .mb-3
           label.form-label(for='Sprice') Unit Price per kg:
-          input#Sprice.form-control(type='number' name='uprice')
+          input#Sprice.form-control(type='number' name='uprice' value=stock.uprice)
           span.text-danger#unit-error
 
         .mb-3
           label.form-label(for='Tamount') Total Amount:
-          input#Tamount.form-control(type='number' name='tamount')
+          input#Tamount.form-control(type='number' name='tamount' value=stock.tamount)
           span.text-danger#total-error
 
         .mb-3
           label.form-label(for='customerName') Supplier Name:
-          input#customerName.form-control(type='text' name='supplierName')
+          input#customerName.form-control(type='text' name='supplierName' value=stock.supplierName)
           span.text-danger#supplier-error
 
         .mb-3
           label.form-label(for='customerContact') Supplier Contact:
-          input#customerContact.form-control(type='text' name='supplierContact')
+          input#customerContact.form-control(type='text' name='supplierContact' value=stock.supplierContact)
           span.text-danger#contact-error
 
         .mb-3
           label.form-label(for='branch') Branch:
-          select#autoSizingSelect.form-select(name='branch')
-            option(selected='') Choose...
-            option(value='Mattuga') Matugga
-            option(value='Maganjo') Manganjo
+          select#branch.form-select(name='branch')
+            option(value='') Choose...
+            option(value='Mattuga' selected=stock.branch === 'Mattuga') Matugga
+            option(value='Maganjo' selected=stock.branch === 'Maganjo') Maganjo
           span.text-danger#branch-error
 
         .mb-3
           label.form-label(for='autoSizingSelect') Payment Method:
           select#autoSizingSelect.form-select(name='paymentMethod')
-            option(selected='') Choose...
-            option(value='Cash') Cash
-            option(value='Mobile Money') Mobile Money
-            option(value='Bank Transfer') Bank Transfer
+            option(value='') Choose...
+            option(value='Cash' selected=stock.paymentMethod === 'Cash') Cash
+            option(value='Mobile Money' selected=stock.paymentMethod === 'Mobile Money') Mobile Money
+            option(value='Bank Transfer' selected=stock.paymentMethod === 'Bank Transfer') Bank Transfer
           span.text-danger#payment-error
 
         button.btn.custom-green.w-100(type='submit') Submit

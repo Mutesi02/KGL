@@ -16,3 +16,32 @@ h1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20;
 }
+.btn-custom-green {
+    background-color: #004d00;  /* Custom Green */
+    color: white;
+    border: none;
+  }
+  .btn-custom-green:hover {
+    opacity: 0.9;
+  }
+  .card.bg-success {
+    background-color: #004d00 !important;
+  }
+  /* Improve Table Styles */
+  .table th, .table td {
+    padding: 12px; /* Increased padding */
+    text-align: left;
+  }
+  .table th {
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+  }
+  .table-hover tbody tr:hover {
+    background-color: #e2e6ea;
+  }
+  .table td, .table th {
+    vertical-align: middle;
+  }

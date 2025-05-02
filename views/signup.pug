@@ -2,10 +2,10 @@ doctype html
 html
   head
     meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title SignUp
     // Bootstrap CSS
-    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css', rel='stylesheet')
     link(rel='stylesheet', href='/css/signup.css')
   body
     .container.mt-5
@@ -14,35 +14,40 @@ html
           .card.shadow
             .card-body
               h2#formTitle.text-center.mb-4.text-success Sign Up
-              form#authForm(action="/signingup" method="post")
+              form#authForm(action="/signingup", method="post", onsubmit='validateSignUpForm(event)')
                 .mb-3
-                  label.form-label(for="fullName") Full Name
-                  input#name.form-control(type='text', name='fullName', placeholder='', required)
+                  label.form-label(for="name") Full Name
+                  input#name.form-control(type='text', name='fullName', )
+
                 .mb-3
                   label.form-label(for="email") Email
-                  input#email.form-control(type='email', name='email', placeholder='', required)
+                  input#email.form-control(type='email', name='email', )
+
                 .mb-3
                   label.form-label(for="password") Password
-                  input#password.form-control(type='password', name='password', placeholder='Enter password', required)
+                  input#password.form-control(type='password', name='password', placeholder='Enter password', )
+                  div#passwordStrength.small.mt-1
+
                 .mb-3
                   label.form-label(for="confirmPassword") Confirm Password
-                  input#confirmPassword.form-control(type='password', name='confirmPassword', placeholder='Re-enter password', required)
+                  input#confirmPassword.form-control(type='password', name='confirmPassword', placeholder='Re-enter password', )
 
                 .mb-3
                   label.form-label.mb-2 Role
-                  .form-check
-                    input#manager.form-check-input(type='radio', name='role', value="manager")
-                    label.form-check-label(for='manager') Manager
-                  .form-check
-                    input#director.form-check-input(type='radio', name='role', value="director", checked)
-                    label.form-check-label(for='director') Director
-                  .form-check
-                    input#salesagent.form-check-input(type='radio', name='role', value="salesagent")
-                    label.form-check-label(for='salesagent') Sales Agent
+                  #role
+                    .form-check
+                      input#manager.form-check-input(type='radio', name='role', value="manager")
+                      label.form-check-label(for='manager') Manager
+                    .form-check
+                      input#director.form-check-input(type='radio', name='role', value="director", checked)
+                      label.form-check-label(for='director') Director
+                    .form-check
+                      input#salesagent.form-check-input(type='radio', name='role', value="salesagent")
+                      label.form-check-label(for='salesagent') Sales Agent
 
-                .mb-4.d-flex.align-items-center.gap-3
-                  label.form-label.mb-0(for='branchname') Branch:
-                  select#branchname.form-select(name='branch', required)
+                .mb-4
+                  label.form-label(for='branchname') Branch:
+                  select#branchname.form-select(name='branch', )
                     option(value='') Select branch
                     option(value='matugga') Matugga
                     option(value='maganjo') Maganjo
@@ -55,5 +60,5 @@ html
 
     // Bootstrap Bundle with Popper.js
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')
-    // Your Custom JavaScript File
-    script(src='/login/addInformation')
+    // Custom JS for Validation
+    script(src='/js/signup.js')

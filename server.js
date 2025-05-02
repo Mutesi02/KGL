@@ -27,6 +27,8 @@ const directorRoutes = require("./routes/directorRoutes");
 const salesAgentRoutes = require("./routes/salesAgentRoutes");
 const indexRoutes = require("./routes/indexRoutes");
 const contactRoutes = require("./routes/contactRoutes");
+const deferredPaymentsRoutes = require("./routes/deferredPaymentsRoutes");
+const produceProcurementRoutes = require("./routes/produceProcurementRoutes")
 //3.configuration
 app.locals.moment = moment;
 mongoose.connect(process.env.DATABASE, {
@@ -71,7 +73,9 @@ app.use("/", managersRoutes);
 app.use("/", salesAgentRoutes);
 app.use("/", directorRoutes);
 app.use("/", indexRoutes);
-app.use("/", contactRoutes)
+app.use("/", contactRoutes);
+app.use("/", deferredPaymentsRoutes);
+app.use("/", produceProcurementRoutes);
 
 
 //redirection to unavailable page

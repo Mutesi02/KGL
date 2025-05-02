@@ -4,6 +4,7 @@ body {
     padding: 20px;
     background-color: #f4f4f4;
 }
+
 .container {
     max-width: 800px;
     margin: auto;
@@ -12,9 +13,11 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 h1 {
     text-align: center;
 }
+
 input {
     width: 100%;
     padding: 10px;
@@ -22,28 +25,61 @@ input {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
     background: white;
 }
+
 th, td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
 }
+
 th {
-    background: #007BFF;
+    background: #004d00; /* Green header */
     color: white;
 }
+
 button {
     padding: 10px 15px;
     border: none;
-    background: #28a745;
+    background: #004d00; /* Green button */
     color: white;
     cursor: pointer;
     border-radius: 5px;
 }
+
 .edit {
     background: #ffc107;
+    color: black;
 }
+
+/* NAVIGATION BAR STYLING */
+.navbar {
+    background-color: #004d00 !important; /* Green navbar */
+}
+
+.navbar .nav-link {
+    color: white !important;
+}
+
+.navbar .nav-link:hover {
+    color: #cce5cc !important;
+    text-decoration: underline;
+}
+
+/* Custom Green Submit Button */
+.custom-green {
+    background-color: #004d00; /* Custom green color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.navbar-brand {
+    color: white !important;
+  }

@@ -31,6 +31,24 @@ function ValidityForm(event) {
     payment: document.getElementById("payment-error"),
   };
 
+  //This auto calculates the total amount:
+  document.addEventListener("DOMContentLoaded", () => {
+    const qty = document.getElementById("Qsold");
+    const unit = document.getElementById("Sprice");
+    const total = document.getElementById("Tamount");
+  
+    function calculateTotal() {
+      const q = parseFloat(qty.value);
+      const u = parseFloat(unit.value);
+      if (!isNaN(q) && !isNaN(u)) {
+        total.value = (q * u).toFixed(2);
+      }
+    }
+  
+    qty.addEventListener("input", calculateTotal);
+    unit.addEventListener("input", calculateTotal);
+  });
+
   // Clear previous errors
   for (let key in errs) errs[key].textContent = "";
 
@@ -65,7 +83,7 @@ function ValidityForm(event) {
     isValid = false;
   }
   if (!customer) {
-    errs.customer.textContent = "Customer name required.";
+    errs.customer.textContent = "Customer name.";
     isValid = false;
   }
   if (!contact || contact.length < 9) {

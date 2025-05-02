@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
+
 const saleSchema = new mongoose.Schema({
   pname: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Stock",
+    type: String,
+    trim: true,
+    required: true,
   },
   tproduce: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Stock",
+    type: String,
+    trim: true,
+    required: true,
   },
   dsale: {
     type: Date,
@@ -44,12 +47,14 @@ const saleSchema = new mongoose.Schema({
     required: true,
   },
   seller: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Signup",
+    type: String, // changed from ObjectId to String
+    trim: true,
+    required: true,
   },
   branch: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Stock",
+    type: String, // changed from ObjectId to String
+    trim: true,
+    required: true,
   },
   paymentMethod: {
     type: String,

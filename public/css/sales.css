@@ -48,3 +48,53 @@ form {
 .btn:hover {
   background: #0056b3;
 }
+
+/* Navbar Styling */
+nav.navbar {
+  background-color: #004d00 !important;
+}
+
+.navbar .navbar-brand {
+  color: white !important;
+}
+
+.navbar .nav-link {
+  color: white !important;
+}
+
+.navbar .nav-link:hover {
+  color: #c8e6c9 !important;
+}
+
+.navbar-toggler-icon {
+  background-color: white !important;
+}
+
+.navbar-toggler {
+  border-color: white !important;
+}
+
+.offcanvas-body {
+  background-color: #004d00;
+}
+
+.offcanvas-body .nav-link {
+  color: white !important;
+}
+
+.offcanvas-body .nav-link:hover {
+  color: #c8e6c9 !important;
+}
+
+.form-select,
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button.carousel-control-prev,
+button.carousel-control-next {
+  background-color: #004d00 !important;
+}
