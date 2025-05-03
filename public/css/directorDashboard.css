@@ -18,6 +18,19 @@ body {
     align-items: center;
 }
 
+/* Make sure all text inside the navbar is white */
+.navbar .logo,
+.navbar a,
+.navbar span,
+.navbar li,
+.navbar h1,
+.navbar h2,
+.navbar h3 {
+    color: white !important;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;

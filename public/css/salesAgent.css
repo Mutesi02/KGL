@@ -12,15 +12,24 @@ body {
 .navbar {
     background: #006400;
     color: white;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem; /* Matches the size on the index page */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.navbar .navbar-nav .nav-link {
+    color: white !important; /* Ensures all nav links are white */
+}
+
+.navbar .navbar-toggler-icon {
+    background-color: white; /* Ensures hamburger icon is visible */
+}
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    color: white; /* Change KGL text color to white */
 }
 
 .logout-btn {
@@ -33,7 +42,7 @@ body {
 }
 
 .dashboard {
-    padding: 2rem;
+    margin-top: 80px; /* Adjust as needed to create more space */
 }
 
 .cards {
@@ -48,7 +57,7 @@ body {
     flex: 1;
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     min-width: 200px;
 }
@@ -75,7 +84,7 @@ body {
     background: white;
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
 }
 
@@ -88,7 +97,7 @@ form input, form select {
 }
 
 form button {
-    background: #4caf50;
+    background: #004d00;
     color: white;
     padding: 0.8rem;
     width: 100%;
@@ -110,13 +119,13 @@ th, td {
 }
 
 th {
-    background: #006400;
+    background: #004d00;
     color: white;
 }
 
 footer {
     text-align: center;
     padding: 1rem;
-    background: #006400;
+    background: #004d00;
     color: white;
 }

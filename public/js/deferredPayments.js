@@ -25,9 +25,12 @@ function validateDeferredForm(event) {
     isValid = false;
   }
 
-  const idPattern = /^\d{3}-\d{4}-\d{3}$/;
-  if (!idPattern.test(nationalId.value.trim())) {
-    document.getElementById("nationalId-error").textContent = "Invalid ID format (e.g. 123-4567-890).";
+  const idPattern = /^[A-Z0-9]{14,20}$/i; // Accept alphanumeric ID between 14-20 characters
+  if (!nationalId.value.trim()) {
+    document.getElementById("nationalId-error").textContent = "National ID is required.";
+    isValid = false;
+  } else if (!idPattern.test(nationalId.value.trim())) {
+    document.getElementById("nationalId-error").textContent = "National ID must be 14–20 letters or digits.";
     isValid = false;
   }
 

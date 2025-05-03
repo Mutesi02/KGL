@@ -62,57 +62,58 @@ main.container.mt-5.pt-5
     form#buyerForm.row.g-3.needs-validation(action='/deferredPayments' method='post' onsubmit='validateDeferredForm(event)')
       .col-md-6
         label.form-label(for="buyerName") Buyer Name
-        input.form-control#buyerName(type="text"  placeholder="Enter name")
+        input.form-control#buyerName(type="text"  placeholder="Enter name" name="buyerName")
         span.text-danger#buyerName-error
 
       .col-md-6
         label.form-label(for="nationalId") National ID
-        input.form-control#nationalId(type="text" pattern="\d{3}-\d{4}-\d{3}"  placeholder="Enter ID e.g. 123-4567-890")
+        input.form-control#nationalId(type="text" pattern="[A-Za-z0-9]{14,20}" placeholder="" name="nationalId")
+
         span.text-danger#nationalId-error
 
       .col-md-6
         label.form-label(for="location") Location
-        input.form-control#location(type="text" )
+        input.form-control#location(type="text" name="location")
         span.text-danger#location-error
 
       .col-md-6
         label.form-label(for="contacts") Contact Number
-        input.form-control#contacts(type="tel" )
+        input.form-control#contacts(type="tel" name="contacts")
         span.text-danger#contacts-error
 
       .col-md-6
         label.form-label(for="amountDue") Amount Due (UGX)
-        input.form-control#amountDue(type="number" min="10000" )
+        input.form-control#amountDue(type="number" min="10000" name="amountDue")
         span.text-danger#amountDue-error
 
       .col-md-6
         label.form-label(for="salesAgent") Sales Agent
-        input.form-control#salesAgent(type="text" )
+        input.form-control#salesAgent(type="text" name="salesAgent")
         span.text-danger#salesAgent-error
 
       .col-md-6
         label.form-label(for="dueDate") Due Date
-        input.form-control#dueDate(type="date" )
+        input.form-control#dueDate(type="date" name="dueDate")
         span.text-danger#dueDate-error
 
       .col-md-6
         label.form-label(for="produceName") Produce Name
-        input.form-control#produceName(type="text" )
+        input.form-control#produceName(type="text" name="produceName")
         span.text-danger#produceName-error
 
       .col-md-6
         label.form-label(for="produceType") Produce Type
-        input.form-control#produceType(type="text" )
+        input.form-control#produceType(type="text" name="produceType")
         span.text-danger#produceType-error
 
       .col-md-6
         label.form-label(for="tonnage") Tonnage
-        input.form-control#tonnage(type="number" )
+        input.form-control#tonnage(type="number" name="tonnage")
         span.text-danger#tonnage-error
 
       .col-md-6
         label.form-label(for="dispatchDate") Dispatch Date
-        input.form-control#dispatchDate(type="date" )
+        input.form-control#dispatchDate(type="date" name="dispatchDate")
         span.text-danger#dispatchDate-error
 
       .col-12.text-center

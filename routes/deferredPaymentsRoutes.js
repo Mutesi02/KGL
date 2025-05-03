@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Payments = require("../models/Payment"); // Make sure this is correctly imported
+const Payments = require("../models/Credits"); // Make sure this is correctly imported
 
 // GET Route
 router.get("/deferredPayments", (req, res) => {

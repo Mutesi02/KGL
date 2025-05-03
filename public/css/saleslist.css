@@ -1,109 +1,158 @@
-/* saleslist.css */
-
 /* Body and container styling */
 body {
-    background-color: #f8f9fa;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  /* Headings */
-  h1 {
-    color: #343a40;
-  }
-  
-  /* Table styling */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  table th,
-  table td {
-    padding: 12px;
-    text-align: center;
-    vertical-align: middle;
-  }
-  
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Headings */
+h1 {
+  color: #343a40;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* ✅ Strong specificity for green header */
+table thead.table-header-green th {
+  background-color: #004d00 !important;
+  color: white !important;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 20px;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-success {
+  background-color: #198754;
+  border-color: #198754;
+}
+
+/* ✅ Button spacing */
+.table-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Search input */
+#search {
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Responsive handling */
+@media (max-width: 768px) {
   table thead {
-    background-color: #343a40;
-    color: #fff;
+    display: none;
   }
-  
-  table tbody tr:hover {
-    background-color: #f1f1f1;
+
+  table,
+  table tbody,
+  table tr,
+  table td {
+    display: block;
+    width: 100%;
   }
-  
-  /* Buttons */
-  .btn {
-    border-radius: 20px;
-  }
-  
-  .btn-primary {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
-  }
-  
-  .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-  }
-  
-  .btn-success {
-    background-color: #198754;
-    border-color: #198754;
-  }
-  
-  /* Search input */
-  #search {
-    max-width: 400px;
-    margin: 0 auto 20px auto;
-    padding: 10px;
+
+  table tr {
+    margin-bottom: 15px;
+    border: 1px solid #dee2e6;
     border-radius: 8px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.1);
-    border: 1px solid #ccc;
-    font-size: 1rem;
+    padding: 10px;
+    background: white;
   }
-  
-  /* Responsive handling */
-  @media (max-width: 768px) {
-    table thead {
-      display: none;
-    }
-  
-    table, table tbody, table tr, table td {
-      display: block;
-      width: 100%;
-    }
-  
-    table tr {
-      margin-bottom: 15px;
-      border: 1px solid #dee2e6;
-      border-radius: 8px;
-      padding: 10px;
-      background: white;
-    }
-  
-    table td {
-      text-align: right;
-      padding-left: 50%;
-      position: relative;
-    }
-  
-    table td::before {
-      content: attr(data-label);
-      position: absolute;
-      left: 10px;
-      width: 45%;
-      white-space: nowrap;
-      text-align: left;
-      font-weight: bold;
-    }
+
+  table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
   }
-  
+
+  table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+}
+
+/* ✅ Navbar Styling */
+.navbar {
+  background-color: #004d00 !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link,
+.navbar .offcanvas-title,
+.navbar .btn,
+.navbar .form-control::placeholder {
+  color: white !important;
+}
+
+/* ✅ Keep links white on hover/focus */
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+
+/* ✅ Offcanvas background */
+.offcanvas {
+  background-color: #004d00 !important;
+}
+
+.offcanvas .nav-link,
+.offcanvas .offcanvas-title {
+  color: white !important;
+}
+
+/* ✅ Outline search button styling */
+.navbar .btn-outline-light {
+  color: white;
+  border-color: white;
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: white;
+  color: #004d00;
+}

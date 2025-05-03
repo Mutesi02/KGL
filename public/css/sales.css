@@ -1,10 +1,15 @@
 body {
   background: #f4f4f4;
   font-family: Arial, sans-serif;
+  padding-top: 60px;
 }
 
 .container {
   max-width: 600px;
+}
+
+.main-content {
+  margin-top: 100px; /* This pushes your main content below the fixed navbar */
 }
 
 h1 {
@@ -24,13 +29,7 @@ form {
   color: #555;
 }
 
-.form-control {
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-size: 16px;
-}
-
+.form-control,
 .form-select {
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -39,14 +38,29 @@ form {
 }
 
 .btn {
-  background: #007bff;
+  background: #004d00; /* Updated color */
   border-radius: 8px;
   font-size: 18px;
   padding: 10px;
+  color: white;
+  border: none;
 }
 
 .btn:hover {
-  background: #0056b3;
+  background: #003300; /* Darker shade on hover */
+  color: white;
+}
+
+/* Search button specifically in navbar */
+button.btn.btn-outline-light {
+  background: #004d00;
+  border: none;
+  color: white;
+}
+
+button.btn.btn-outline-light:hover {
+  background: #003300;
+  color: white;
 }
 
 /* Navbar Styling */
@@ -86,14 +100,7 @@ nav.navbar {
   color: #c8e6c9 !important;
 }
 
-.form-select,
-.form-control {
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-size: 16px;
-}
-
+/* Carousel button styling (if used) */
 button.carousel-control-prev,
 button.carousel-control-next {
   background-color: #004d00 !important;

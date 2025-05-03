@@ -10,10 +10,10 @@ html
     link(rel="stylesheet", href="/css/sales.css")
 
   body
-    // Navbar with Dark Green Background
-    nav.navbar.navbar-expand-lg.fixed-top
+    // Navbar
+    nav.navbar.navbar-expand-lg.fixed-top(style="background-color: #004d00;")
       .container-fluid
-        a.navbar-brand(href="#") KGL
+        a.navbar-brand(href="#", style="color: white;") KGL
         button.navbar-toggler(type="button", data-bs-toggle="offcanvas", data-bs-target="#offcanvasNavbar")
           span.navbar-toggler-icon
         .offcanvas.offcanvas-end#offcanvasNavbar
@@ -43,54 +43,65 @@ html
               button.btn.btn-outline-light(type="submit") Search
 
     // Main Content
-    .container.mt-5.pt-5
+    .container.mt-5.pt-5(style="padding-top: 100px;")
       h1.text-center.mb-4 Sales Produce
 
-      form#myForm.p-4.shadow-lg.rounded.bg-light(action=`/sales/addSale/${stock._id}`, method='post')
+      form#myForm.p-4.shadow-lg.rounded.bg-light(action=`/sales/addSale/${stock._id}`, method='post' onsubmit='ValidityForm(event)')
         .mb-3
           label.form-label(for='produceName') Produce Name:
           input#produceName.form-control(type='text', name='pname', value=stock.pname)
+          small.text-danger#produce-error
 
         .mb-3
           label.form-label(for='Tproduce') Type of Produce:
           input#Tproduce.form-control(type='text', name='tproduce', value=stock.tproduce)
+          small.text-danger#type-error
 
         .mb-3
           label.form-label(for='datePicker') Date of Sale:
           input#datePicker.form-control(type='date', name='dsale')
+          small.text-danger#date-error
 
         .mb-3
           label.form-label(for='timePicker') Time of Sale:
           input#timePicker.form-control(type='time', name='tsale')
+          small.text-danger#time-error
 
         .mb-3
           label.form-label(for='Qsold') Quantity Sold (kg):
           input#Qsold.form-control(type='number', name='qsold')
+          small.text-danger#quantity-error
 
         .mb-3
           label.form-label(for='Sprice') Unit Price per kg:
           input#Sprice.form-control(type='number', name='uprice', value=stock.uprice)
+          small.text-danger#unit-error
 
         .mb-3
           label.form-label(for='Tamount') Total Amount:
           input#Tamount.form-control(type='number', name='tamount')
+          small.text-danger#total-error
 
         .mb-3
           label.form-label(for='customerName') Customer Name:
           input#customerName.form-control(type='text', name='customerName')
+          small.text-danger#customer-error
 
         .mb-3
           label.form-label(for='customerContact') Customer Contact:
           input#customerContact.form-control(type='text', name='customerContact')
+          small.text-danger#contact-error
 
         .mb-3
           label.form-label(for='seller') Seller:
           input#seller.form-control(type='text', name='seller', value=fullName)
+          small.text-danger#seller-error
 
         .mb-3
           label.form-label(for='branch') Branch:
           select.form-select(name='branch')
             option(value=branch)= branch
+          small.text-danger#branch-error
 
         .mb-3
           label.form-label(for='paymentMethod') Payment Method:
@@ -99,6 +110,7 @@ html
             option(value='Cash') Cash
             option(value='Mobile Money') Mobile Money
             option(value='Bank Transfer') Bank Transfer
+          small.text-danger#payment-error
 
         button.btn.btn-primary.w-100(type='submit') Submit
 
