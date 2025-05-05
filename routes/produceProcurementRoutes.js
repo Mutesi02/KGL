@@ -31,4 +31,17 @@ router.post('/produceProcurement', async (req, res) => {
   }
 });
 
+// GET: Fetch data from the database
+router.get('/produceProcurement/first-three', async (req, res) => {
+  try {
+    const procurements = await Procurement.find()
+      .limit(3)
+      .sort({ createdAt: -1 });
+    res.render("produceProcurement", {
+      firstThree:procurements
+  })
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching procurements', error });
+  }
+});
 module.exports = router;

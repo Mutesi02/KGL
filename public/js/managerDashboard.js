@@ -1,14 +1,14 @@
 // Sample data - in real application, you would fetch this from a backend or database
-const procurements = [
-    { produce: 'Maize', type: 'Grain', tonnage: 3000, cost: 2000000, dealer: 'Sseka', branch: 'Maganjo', date: '2025-02-09' },
-    { produce: 'Beans', type: 'Grain', tonnage: 2000, cost: 150000, dealer: 'Kigere', branch: 'Matugga', date: '2025-02-06' },
-    { produce: 'Soya', type: 'Grain', tonnage: 1000, cost: 350000, dealer: 'Mwebe', branch: 'Matugga', date: '2025-02-13' }
-  ];
+// const procurements = [
+//     { produce: 'Maize', type: 'Grain', tonnage: 3000, cost: 2000000, dealer: 'Sseka', branch: 'Maganjo', date: '2025-02-09' },
+//     { produce: 'Beans', type: 'Grain', tonnage: 2000, cost: 150000, dealer: 'Kigere', branch: 'Matugga', date: '2025-02-06' },
+//     { produce: 'Soya', type: 'Grain', tonnage: 1000, cost: 350000, dealer: 'Mwebe', branch: 'Matugga', date: '2025-02-13' }
+//   ];
   
-  const sales = [
-    { produce: 'Soybeans', tonnage: 2000, amountPaid: 1000000, buyer: 'Sarah', agent: 'Alex', branch: 'Matugga', date: '2025-02-10' },
-    { produce: 'Cow Peas', tonnage: 3000, amountPaid: 2000000, buyer: 'Kanyana', agent: 'James', branch: 'Maganjo', date: '2025-02-14' }
-  ];
+//   const sales = [
+//     { produce: 'Soybeans', tonnage: 2000, amountPaid: 1000000, buyer: 'Sarah', agent: 'Alex', branch: 'Matugga', date: '2025-02-10' },
+//     { produce: 'Cow Peas', tonnage: 3000, amountPaid: 2000000, buyer: 'Kanyana', agent: 'James', branch: 'Maganjo', date: '2025-02-14' }
+//   ];
   
   // Function to calculate and update dashboard numbers
   function updateDashboard() {

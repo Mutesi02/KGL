@@ -31,7 +31,7 @@ html
               li.nav-item
                 a.nav-link.text-white(href='/deferredPayments') Deferred Payments
               li.nav-item
-                a.nav-link.text-white(href='/managersdash') Manager's Dashboard
+                a.nav-link.text-white(href='/managersDash') Manager's Dashboard
               li.nav-item
                 a.nav-link.text-white(href='/contacts') Contact
               li.nav-item
@@ -40,7 +40,6 @@ html
               input.form-control.me-2(type='search' placeholder='Search' aria-label='Search')
               button.btn.btn-outline-light(type='submit') Search
 
-    // Main content with spacing below fixed navbar
     .container.mt-5.pt-5
       h1 Dashboard
       p Overview of procurements, sales, inventory status, and notifications for out-of-stock items.
@@ -50,95 +49,77 @@ html
           .card.text-white.bg-primary.mb-3
             .card-body
               h5 Total Procurements
-              p 15,000kg
+              p #{totalProcurements} kg
         .col-lg-3.col-md-6
           .card.text-white.bg-success.mb-3
             .card-body
               h5 Total Sales
-              p 10,000kg
+              p #{totalSales} kg
         .col-lg-3.col-md-6
           .card.text-white.bg-warning.mb-3
             .card-body
               h5 Low Stock Alerts
-              p 5
+              p #{lowStockCount}
         .col-lg-3.col-md-6
           .card.text-white.bg-danger.mb-3
             .card-body
               h5 Out of Stock Items
-              p 3
+              p #{outOfStockCount}
 
-      p Recent Procurements
+      p.mt-4.mb-2 Recent Procurements
       table.table.table-striped.table-hover
         thead
           tr
             th(scope='col') #
             th(scope='col') Produce Name
             th(scope='col') Type
-            th(scope='col') Tonnage(kg)
-            th(scope='col') Cost(UGX)
+            th(scope='col') Tonnage (kg)
+            th(scope='col') Cost (UGX)
             th(scope='col') Dealer Name
             th(scope='col') Branch
             th(scope='col') Date
         tbody
-          tr
-            th(scope='row') 1
-            td Maize
-            td Grain
-            td 3000
-            td 2,000,000
-            td Sseka
-            td Maganjo
-            td 2025-02-09
-          tr
-            th(scope='row') 2
-            td Beans
-            td Grain
-            td 2000
-            td 150,000
-            td Kigere
-            td Matugga
-            td 2025-02-06
-          tr
-            th(scope='row') 3
-            td Soya
-            td Grain
-            td 1000
-            td 350,000
-            td Mwebe
-            td Matugga
-            td 2025-02-13
+          if recentProcurements.length
+            each p, index in recentProcurements
+              tr
+                th(scope='row') #{index + 1}
+                td #{p.Pname}
+                td #{p.Tproduce}
+                td #{p.tonnage}
+                td #{p.cost}
+                td #{p.dealerName}
+                td #{p.branchName}
+                td #{p.Dprocurement ? p.Dprocurement.toDateString() : ''}
+          else
+            tr
+              td(colspan='8') No recent procurements found.
 
-      p Recent Sales
+      p.mt-5 Recent Sales
       table.table.table-striped.table-hover
         thead
           tr
             th(scope='col') #
             th(scope='col') Product Name
-            th(scope='col') Tonnage(kg)
-            th(scope='col') Amount Paid(shs)
+            th(scope='col') Tonnage (kg)
+            th(scope='col') Amount Paid (UGX)
             th(scope='col') Buyer's Name
             th(scope='col') Sales Agent
             th(scope='col') Branch
             th(scope='col') Date
         tbody
-          tr
-            th(scope='row') 1
-            td Soybeans
-            td 2000
-            td 1,000,000
-            td Sarah
-            td Alex
-            td Matugga
-            td 1015-02-10
-          tr
-            th(scope='row') 2
-            td Cow Peas
-            td 3000
-            td 2,000,000
-            td Kanyana
-            td James
-            td Maganjo
-            td 2025-02-14
+          if recentSales.length
+            each sale, index in recentSales
+              tr
+                th(scope='row') #{index + 1}
+                td #{sale.pname}
+                td #{sale.qsold}
+                td #{sale.tamount}
+                td #{sale.customerName}
+                td #{sale.seller}
+                td #{sale.branch}
+                td #{sale.dsale ? sale.dsale.toDateString() : ''}
+          else
+            tr
+              td(colspan='8') No recent sales found.
 
-    script(src="/js/managerDashboard.js")
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")

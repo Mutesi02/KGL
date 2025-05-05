@@ -59,15 +59,36 @@ router.post('/addStock', upload.single("image"), async(req,res)=>{
    }
  });
  
- router.post("/updateStock/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
-   try {
-     await Stock.findOneAndUpdate({_id:req.params.id}, req.body);
-     res.redirect("/stockdata");
-   } catch (error) {
-     console.error("Update error:", error);
-     res.status(400).send("Unable to update stock");
-   }
- });
+ // updateStock route (POST)
+router.post("/updateStock/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
+  try {
+    console.log("Request body:", req.body); // DEBUGGING
+
+    const updatedStock = await Stock.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        pname: req.body.pname,
+        tproduce: req.body.tproduce,
+        dproduct: req.body.dproduct,
+        tproduct: req.body.tproduct,
+        qproduct: req.body.qproduct,
+        uprice: req.body.uprice,
+        tamount: req.body.tamount,
+        supplierName: req.body.supplierName,
+        supplierContact: req.body.supplierContact,
+        branch: req.body.branch,
+        paymentMethod: req.body.paymentMethod
+      },
+      { new: true }
+    );
+
+    res.redirect("/stockdata");
+  } catch (error) {
+    console.error("Update error:", error);
+    res.status(400).send("Unable to update stock");
+  }
+});
+
  
  // POST: Delete Sale
  router.post("/deleteStock/:id", connectEnsureLogin.ensureLoggedIn(), async (req, res) => {
