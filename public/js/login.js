@@ -32,6 +32,12 @@ function validateLoginForm(event) {
     if (!password || password.length < 6) {
       errs.password.textContent = "Password must be at least 6 characters.";
       isValid = false;
+    } else if (/^[.]+$/.test(password)) {
+      errs.password.textContent = "Password cannot be just dots.";
+      isValid = false;
+    } else if (!/[A-Za-z0-9]/.test(password)) {
+      errs.password.textContent = "Password must contain at least one letter or number.";
+      isValid = false;
     }
   
     // Submit form if valid

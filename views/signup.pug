@@ -3,9 +3,12 @@ html
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title SignUp
+    title Sign Up
     // Bootstrap CSS
     link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Google Fonts
+    link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap', rel='stylesheet')
+    // Custom CSS
     link(rel='stylesheet', href='/css/signup.css')
   body
     .container.mt-5
@@ -13,24 +16,28 @@ html
         .col-md-6.col-lg-5
           .card.shadow
             .card-body
-              h2#formTitle.text-center.mb-4.text-success Sign Up
+              h2#formTitle.text-center.mb-4 Sign Up
               form#authForm(action="/signingup", method="post", onsubmit='validateSignUpForm(event)')
                 .mb-3
                   label.form-label(for="name") Full Name
-                  input#name.form-control(type='text', name='fullName', )
+                  input#name.form-control(type='text', name='fullName')
+                  span.text-danger#name-error
 
                 .mb-3
                   label.form-label(for="email") Email
-                  input#email.form-control(type='email', name='email', )
+                  input#email.form-control(type='email', name='email')
+                  span.text-danger#email-error
 
                 .mb-3
                   label.form-label(for="password") Password
-                  input#password.form-control(type='password', name='password', placeholder='Enter password', )
+                  input#password.form-control(type='password', name='password', placeholder='Enter password')
                   div#passwordStrength.small.mt-1
+                  span.text-danger#password-error
 
                 .mb-3
                   label.form-label(for="confirmPassword") Confirm Password
-                  input#confirmPassword.form-control(type='password', name='confirmPassword', placeholder='Re-enter password', )
+                  input#confirmPassword.form-control(type='password', name='confirmPassword', placeholder='Re-enter password')
+                  span.text-danger#confirmPassword-error
 
                 .mb-3
                   label.form-label.mb-2 Role
@@ -47,18 +54,18 @@ html
 
                 .mb-4
                   label.form-label(for='branchname') Branch:
-                  select#branchname.form-select(name='branch', )
+                  select#branchname.form-select(name='branch')
                     option(value='') Select branch
                     option(value='matugga') Matugga
                     option(value='maganjo') Maganjo
 
                 button.btn.btn-custom-green.w-100(type='submit') Sign Up
 
-              p.text-center.mt-3
+              p.text-center.mt-3.text-muted
                 | Already have an account?
                 a(href='/login') Login here
 
     // Bootstrap Bundle with Popper.js
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')
-    // Custom JS for Validation
+    // Custom JS
     script(src='/js/signup.js')

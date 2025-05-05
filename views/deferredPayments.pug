@@ -18,107 +18,78 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary.fixed-top
         button.btn-close(type="button", data-bs-dismiss="offcanvas")
       .offcanvas-body
         ul.navbar-nav.ms-auto
-          li.nav-item
-            a.nav-link(href="../index.html") Home
-          li.nav-item
-            a.nav-link(href="login.html") Login
-          li.nav-item
-            a.nav-link(href="produce-procurement.html") Produce Procurement
-          li.nav-item
-            a.nav-link(href="stock.html") Stock
-          li.nav-item
-            a.nav-link(href="deffered-payments.html") Deferred Payments
-          li.nav-item
-            a.nav-link(href="sales.html") Sales
-          li.nav-item
-            a.nav-link(href="manager-dashboard.html") Manager's Dashboard
-          li.nav-item
-            a.nav-link(href="contacts.html") Contact
+          li.nav-item: a.nav-link(href="/") Home
+          li.nav-item: a.nav-link(href="/addStock") Stock
+          li.nav-item: a.nav-link(href="/stockdata") Sales
+          li.nav-item: a.nav-link(href="managerDash") Manager's Dashboard
+          li.nav-item: a.nav-link(href="/logout") Logout
 
 // Main Content
 main.container.mt-5.pt-5
   section.mb-5
-    h2.text-center.mb-4 Deferred Payment Plan
+    h2.text-center.mb-4 Deferred Payment Overview
     .card.p-4.shadow-sm
       .row.mb-3
         .col-md-4
           strong Total Cost:
-          |  UGX 2,000,000
+          | UGX 2,000,000
         .col-md-4
           strong Deposit Paid:
-          |  UGX 1,500,000
+          | UGX 1,500,000
         .col-md-4
           strong Remaining:
-          |  UGX 500,000
-      div
-        progress.w-100(value="75", max="100")
-        p.text-center.mt-2 75% Paid
-      .text-center.mt-4
-        button.btn.btn-success.me-2 💳 Pay Now
-        button.btn.btn-outline-primary 🗓️ Set Up Payment Plan
-
-  section.mb-5
-    h3.mb-3 Record Trusted Buyer Information
+          | UGX 500,000
+      progress.w-100(value="75", max="100")
+      p.text-center.mt-2.text-success
+    h3.mb-3.text-center Register a New Creditor
     form#buyerForm.row.g-3.needs-validation(action='/deferredPayments' method='post' onsubmit='validateDeferredForm(event)')
       .col-md-6
         label.form-label(for="buyerName") Buyer Name
         input.form-control#buyerName(type="text"  placeholder="Enter name" name="buyerName")
         span.text-danger#buyerName-error
-
       .col-md-6
         label.form-label(for="nationalId") National ID
-        input.form-control#nationalId(type="text" pattern="[A-Za-z0-9]{14,20}" placeholder="" name="nationalId")
-
+        input.form-control#nationalId(type="text" pattern="[A-Za-z0-9]{14,20}" name="nationalId")
         span.text-danger#nationalId-error
-
       .col-md-6
         label.form-label(for="location") Location
         input.form-control#location(type="text" name="location")
         span.text-danger#location-error
-
       .col-md-6
         label.form-label(for="contacts") Contact Number
         input.form-control#contacts(type="tel" name="contacts")
         span.text-danger#contacts-error
-
       .col-md-6
         label.form-label(for="amountDue") Amount Due (UGX)
         input.form-control#amountDue(type="number" min="10000" name="amountDue")
         span.text-danger#amountDue-error
-
       .col-md-6
         label.form-label(for="salesAgent") Sales Agent
         input.form-control#salesAgent(type="text" name="salesAgent")
         span.text-danger#salesAgent-error
-
       .col-md-6
         label.form-label(for="dueDate") Due Date
         input.form-control#dueDate(type="date" name="dueDate")
         span.text-danger#dueDate-error
-
       .col-md-6
         label.form-label(for="produceName") Produce Name
         input.form-control#produceName(type="text" name="produceName")
         span.text-danger#produceName-error
-
       .col-md-6
         label.form-label(for="produceType") Produce Type
         input.form-control#produceType(type="text" name="produceType")
         span.text-danger#produceType-error
-
       .col-md-6
         label.form-label(for="tonnage") Tonnage
         input.form-control#tonnage(type="number" name="tonnage")
         span.text-danger#tonnage-error
-
       .col-md-6
         label.form-label(for="dispatchDate") Dispatch Date
         input.form-control#dispatchDate(type="date" name="dispatchDate")
         span.text-danger#dispatchDate-error
-
       .col-12.text-center
         button.btn.btn-primary.mt-3(type="submit") Submit
 
-// Bootstrap JS and custom script
+// Bootstrap JS and your custom script
 script(src="/js/deferredPayments.js")
 script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")

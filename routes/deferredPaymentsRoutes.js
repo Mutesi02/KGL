@@ -10,16 +10,26 @@ router.get("/deferredPayments", (req, res) => {
 // POST Route
 router.post("/deferredPayments", async (req, res) => {
     try {
-        const deferredPayments = new Payments(req.body);
-        console.log(deferredPayments);
-        await deferredPayments.save();
-        res.redirect("/deferredPayments");
+      const credit = new Credit(req.body);
+      await credit.save();
+      res.redirect("/deferredPayments");
     } catch (error) {
-        console.error("Error saving payment:", error);
-        res.status(400).render("deferredPayments", {
-            error: "There was a problem saving the payment. Please try again."
-        });
+      console.error("Error saving payment:", error);
+  
+      // Fetch existing credits so the page still renders correctly
+      const credits = await Credit.find();
+      const totalCost = credits.reduce((sum, c) => sum + c.amountDue, 0);
+      const totalPaid = credits.reduce((sum, c) => sum + (c.amountPaid || 0), 0);
+      const remaining = totalCost - totalPaid;
+      const percentPaid = totalCost ? Math.round((totalPaid / totalCost) * 100) : 0;
+  
+      res.status(400).render("deferredPayments", {
+        error: "There was a problem saving the payment. Please try again.",
+        credits,
+        summary: { totalCost, totalPaid, remaining, percentPaid }
+      });
     }
-});
+  });
+  
 
 module.exports = router;

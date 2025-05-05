@@ -1,47 +1,225 @@
-
-
-#sales {
-    background-color: red;
+/* Body Setup */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding-top: 60px;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-#Stock {
-    background-color: blue;
+/* Background Image Layer */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('/imgs/beans2jpg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(12px);
+  z-index: -2;
 }
 
-#items {
-    background-color: yellow;
+/* Overlay to dim and blend */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3); /* soft white overlay */
+  z-index: -1;
 }
 
-h1 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20;
+/* Main Card/Form Area */
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
+
+/* Form Container */
+.container {
+  max-width: 600px;
+}
+
+/* Headings */
+h1, #formTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #004d00; /* Green color for Dashboard */
+  text-align: center;
+}
+
+/* Labels */
+.form-label {
+  font-weight: 500;
+  color: #004d00;
+}
+
+/* Inputs and Selects */
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Input Hover Effects */
+input.form-control:hover,
+select.form-select:hover {
+  border-color: #004d00;
+  box-shadow: 0 0 5px rgba(0, 77, 0, 0.5);
+}
+
+/* Buttons */
+.btn,
 .btn-custom-green {
-    background-color: #004d00;  /* Custom Green */
-    color: white;
-    border: none;
-  }
-  .btn-custom-green:hover {
-    opacity: 0.9;
-  }
-  .card.bg-success {
-    background-color: #004d00 !important;
-  }
-  /* Improve Table Styles */
-  .table th, .table td {
-    padding: 12px; /* Increased padding */
-    text-align: left;
-  }
-  .table th {
-    background-color: #f8f9fa;
-    color: #333;
-  }
-  .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f9f9f9;
-  }
-  .table-hover tbody tr:hover {
-    background-color: #e2e6ea;
-  }
-  .table td, .table th {
-    vertical-align: middle;
-  }
+  background: #004d00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.btn:hover,
+.btn-custom-green:hover {
+  background: #003300;
+  color: white;
+  opacity: 0.95;
+}
+
+/* Navbar */
+nav.navbar {
+  background-color: #004d00 !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: white !important;
+}
+
+.navbar .nav-link:hover {
+  color: #c8e6c9 !important;
+}
+
+.navbar-toggler-icon {
+  background-color: white !important;
+}
+
+.navbar-toggler {
+  border-color: white !important;
+}
+
+/* Offcanvas Nav */
+.offcanvas-body {
+  background-color: #004d00;
+}
+
+.offcanvas-body .nav-link {
+  color: white !important;
+}
+
+.offcanvas-body .nav-link:hover {
+  color: #c8e6c9 !important;
+}
+
+/* Navbar for Manager's Dashboard */
+nav.navbar.navbar-expand-lg.fixed-top {
+  background-color: #004d00;
+}
+
+.navbar .navbar-brand.text-white {
+  color: white !important;
+}
+
+.navbar-toggler {
+  border-color: white !important;
+}
+
+.navbar-toggler-icon {
+  background-color: white !important;
+}
+
+/* Navbar items */
+.navbar-nav .nav-item .nav-link.text-white {
+  color: white !important;
+}
+
+.navbar-nav .nav-item .nav-link.text-white:hover {
+  color: #c8e6c9 !important;
+  text-decoration: underline;
+}
+
+/* Card Styling for Dashboard */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card.text-white.bg-primary {
+  background-color: #004d00;
+}
+
+.card.text-white.bg-success {
+  background-color: #28a745;
+}
+
+.card.text-white.bg-warning {
+  background-color: #ffc107;
+}
+
+.card.text-white.bg-danger {
+  background-color: #dc3545;
+}
+
+/* Table Styling */
+table.table.table-striped.table-hover {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #004d00;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Table Row Hover */
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* General Styling for Text */
+p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.pt-5 {
+  padding-top: 3rem;
+}

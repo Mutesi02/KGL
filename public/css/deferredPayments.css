@@ -1,132 +1,190 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
+/* Body Setup */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 20px;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding-top: 60px;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
+/* Background Image Layer */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('/imgs/beans2jpg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(12px);
+  z-index: -2;
+}
+
+/* Overlay to dim and blend */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3); /* soft white overlay */
+  z-index: -1;
+}
+
+/* Main Card/Form Area */
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Payment Overview Section */
 .payment-container {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    max-width: 1200px;
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 }
 
-.payment-summary, .payment-methods {
-    width: 48%;
+.payment-summary,
+.payment-methods {
+  width: 48%;
 }
 
-.payment-summary h2, .payment-methods h3 {
-    margin-bottom: 10px;
+.payment-summary h2,
+.payment-methods h3 {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #004d00; /* Green color for titles */
 }
 
 ul {
-    list-style-type: none;
-    margin-bottom: 20px;
+  list-style-type: none;
+  margin-bottom: 20px;
+  padding-left: 0;
 }
 
 li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .payment-progress {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 progress {
-    width: 100%;
-    height: 20px;
-    border-radius: 5px;
+  width: 100%;
+  height: 20px;
+  border-radius: 5px;
 }
 
+/* Buttons */
 button {
-    padding: 12px 25px;
-    margin: 10px 0;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 12px 25px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: 600;
 }
 
 .pay-now {
-    background-color: #004d00 !important;  /* Green background for Pay Now button */
-    color: white;
+  background-color: #004d00 !important;
+  color: white;
 }
 
 .set-up-plan {
-    background-color: #2196F3;
-    color: white;
+  background-color: #2196F3;
+  color: white;
 }
 
 button:hover {
-    opacity: 0.8;
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
-#progressText {
-    font-weight: bold;
-    display: block;
-    margin-top: 5px;
-    text-align: center;
-}
-
+/* Form Section */
 .buyer-record-form {
-    width: 100%;
-    max-width: 900px;
-    margin-top: 40px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  margin-top: 40px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-    margin-top: 10px;
-    font-size: 14px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #004d00; /* Green label text */
 }
 
 input {
-    padding: 10px;
-    margin-top: 5px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #004d00;
+  box-shadow: 0 0 3px #004d00;
 }
 
 button[type="submit"] {
-    background-color: #004d00 !important;  /* Green background for Submit button */
-    color: white;
-    margin-top: 20px;
-    padding: 12px;
+  background-color: #004d00 !important;
+  color: white;
+  margin-top: 20px;
+  padding: 12px;
 }
 
 button[type="submit"]:hover {
-    opacity: 0.8;
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Error Messages */
+.text-danger {
+  font-size: 12px;
+  color: red;
+}
+
+/* Progress Text */
+#progressText {
+  font-weight: bold;
+  display: block;
+  margin-top: 5px;
+  text-align: center;
 }
 
 /* Navbar Styles */
 .navbar {
-    background-color: #004d00 !important;
-    padding: 15px;
+  background-color: #004d00 !important;
+  padding: 15px;
 }
 
 .navbar a,
@@ -135,12 +193,88 @@ button[type="submit"]:hover {
 .navbar h1,
 .navbar h2,
 .navbar h3 {
-    color: white !important;
-    text-decoration: none;
-    font-weight: bold;
+  color: white !important;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
 }
 
 .navbar a:hover {
-    text-decoration: underline;
-    color: #cccccc !important;
+  text-decoration: underline;
+  color: #cccccc !important;
+}
+
+/* Dashboard Specific Styles */
+
+/* Dashboard Heading */
+h1, #formTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #004d00; /* Green color for Dashboard */
+  text-align: center;
+}
+
+/* Additional Styling for Table and Cards */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card.text-white.bg-primary {
+  background-color: #004d00;
+}
+
+.card.text-white.bg-success {
+  background-color: #28a745;
+}
+
+.card.text-white.bg-warning {
+  background-color: #ffc107;
+}
+
+.card.text-white.bg-danger {
+  background-color: #dc3545;
+}
+
+/* Table Styling */
+table.table.table-striped.table-hover {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #004d00;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Table Row Hover */
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* General Styling for Text */
+p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.pt-5 {
+  padding-top: 3rem;
 }

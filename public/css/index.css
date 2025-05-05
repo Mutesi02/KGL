@@ -1,7 +1,7 @@
-
+/* Apply the Poppins font globally */
 body {
   background-color: #f4fff4;
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Poppins', sans-serif; /* Changed to Poppins */
 }
 
 .navbar {
@@ -117,4 +117,3 @@ body {
   line-height: 1.6;
   animation: fadeText 1.8s ease-in-out;
 }
-

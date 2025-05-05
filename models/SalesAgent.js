@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const salesAgentSchema = new mongoose.Schema({
   agentName: {
@@ -7,8 +7,8 @@ const salesAgentSchema = new mongoose.Schema({
     required: true,
   },
   saleType: {
-    type: String, // 'cash' or 'credit'
-    trim: true,
+    type: String,
+    enum: ['cash', 'credit'],
     required: true,
   },
   produceName: {
@@ -16,19 +16,21 @@ const salesAgentSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
+  produceType: {
+    type: String,
+    trim: true,
+    required: true,
+  },
   quantitySold: {
     type: Number,
-    trim: true,
     required: true,
   },
   salePricePerKg: {
     type: Number,
-    trim: true,
     required: true,
   },
   totalAmount: {
     type: Number,
-    trim: true,
     required: true,
   },
   buyerName: {
@@ -42,12 +44,21 @@ const salesAgentSchema = new mongoose.Schema({
     required: true,
   },
   paymentStatus: {
-    type: String, // 'paid' or 'pending'
-    trim: true,
+    type: String,
+    enum: ['paid', 'pending'],
     required: true,
+    default: function () {
+      return this.saleType === 'cash' ? 'paid' : 'pending';
+    }
+  },
+  paymentMethod: {
+    type: String,
+    enum: ['cash', 'mobile money', 'bank', 'credit'],
+    default: 'cash'
   },
   saleDate: {
     type: Date,
+    default: Date.now,
     required: true,
   },
   branch: {
@@ -55,6 +66,23 @@ const salesAgentSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
+  dueDate: {
+    type: Date,
+    required: function () {
+      return this.saleType === 'credit';
+    },
+  },
+  agentId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+}, { timestamps: true });
+
+// Automatically calculate totalAmount
+salesAgentSchema.pre('save', function (next) {
+  this.totalAmount = this.quantitySold * this.salePricePerKg;
+  next();
 });
 
-module.exports = mongoose.model("SalesAgent", salesAgentSchema);
+module.exports = mongoose.model('SalesAgent', salesAgentSchema);

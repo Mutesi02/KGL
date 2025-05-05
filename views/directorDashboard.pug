@@ -8,7 +8,7 @@ html
     link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css", rel="stylesheet")
 
   body
-    // Navbar copied from index.pug
+    // Navbar
     nav.navbar.navbar-expand-lg.fixed-top
       .container-fluid
         a.navbar-brand(href="#") KGL
@@ -23,23 +23,7 @@ html
               li.nav-item
                 a.nav-link(href="/") Home
               li.nav-item
-                a.nav-link(href="/produceProcurement") Produce Procurement
-              li.nav-item
-                a.nav-link(href="/addStock") Stock
-              li.nav-item
-                a.nav-link(href="/login") Login
-              li.nav-item
-                a.nav-link(href="/stockdata") Sales
-              li.nav-item
-                a.nav-link(href="/deferredPayments") Deferred Payments
-              li.nav-item
-                a.nav-link(href="/managerDash") Manager's Dashboard
-              li.nav-item
-                a.nav-link(href="/contacts") Contact
-            form.d-flex.mt-3(role="search")
-              input.form-control.me-2(type="search", placeholder="Search")
-              button.btn.btn-outline-light(type="submit") Search
-
+                a.nav-link(href="/logout") Logout
     // Main Dashboard Section
     section.dashboard.mt-5.pt-4
       .container
@@ -50,26 +34,30 @@ html
             .card.text-center.shadow-sm
               .card-body
                 h3.card-title Total Revenue
-                p#totalRevenue.card-text UGX 0
+                p#totalRevenue.card-text UGX #{totalRevenue.toLocaleString()}
           .col
             .card.text-center.shadow-sm
               .card-body
                 h3.card-title Total Tons Sold
-                p#totalTons.card-text 0 Tons
+                p#totalTons.card-text #{totalTons} Tons
           .col
             .card.text-center.shadow-sm
               .card-body
                 h3.card-title Outstanding Credit
-                p#outstandingCredit.card-text UGX 0
+                p#outstandingCredit.card-text UGX #{outstandingCredit.toLocaleString()}
           .col
             .card.text-center.shadow-sm
               .card-body
                 h3.card-title Total Transactions
-                p#totalTransactions.card-text 0
+                p#totalTransactions.card-text #{totalTransactions}
 
         .chart-section.mb-5
           h2 Sales by Produce
           canvas#produceChart(style="width: 100%; height: 400px;")
+
+          // Embed chart data for JS
+          script(type="application/json" id="produceChartData").
+            !{JSON.stringify(salesByProduce)}
 
         .branch-performance
           h2 Branch Performance
@@ -80,11 +68,48 @@ html
                 th Total Revenue
                 th Total Tons Sold
             tbody#branchTableBody
-              // Populated by JS
+              each branch in branchPerformance
+                tr
+                  td= branch.branch
+                  td UGX #{branch.revenue.toLocaleString()}
+                  td #{branch.tons} Tons
 
     footer.text-center.mt-5.mb-3
       p Karibu Groceries Ltd — Director Dashboard © 2025
 
-    script(src="https://cdn.jsdelivr.net/npm/chart.js")
-    script(src="/js/directorDashboard.js")
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/chart.js")
+
+    // Chart JS logic
+    script.
+      document.addEventListener('DOMContentLoaded', function () {
+        const chartData = JSON.parse(document.getElementById('produceChartData').textContent);
+
+        const ctx = document.getElementById('produceChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: chartData.map(item => item.produceName),
+            datasets: [
+              {
+                label: 'Tons Sold',
+                data: chartData.map(item => item.tonsSold),
+                backgroundColor: '#4caf50',
+              },
+              {
+                label: 'Revenue (UGX)',
+                data: chartData.map(item => item.revenue),
+                backgroundColor: '#81c784',
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      });

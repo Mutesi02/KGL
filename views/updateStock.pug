@@ -11,6 +11,8 @@ html
       crossorigin='anonymous'
     )
     link(rel="stylesheet", href="/css/stock.css")
+    link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap' rel='stylesheet')
+
 
   body
     // Navbar
@@ -28,23 +30,13 @@ html
               li.nav-item
                 a.nav-link(href="/") Home
               li.nav-item
-                a.nav-link(href="/index/produce-procurement.html") Produce Procurement
+                a.nav-link(href="/produceProcurement") Produce Procurement
               li.nav-item
                 a.nav-link(href="/addStock") Stock
               li.nav-item
-                a.nav-link(href="/login") Login
-              li.nav-item
-                a.nav-link(href="/stockdata") Sales
-              li.nav-item
-                a.nav-link(href="/index/deferred-payments.html") Deferred Payments
-              li.nav-item
                 a.nav-link(href="/managerDash") Manager's Dashboard
               li.nav-item
-                a.nav-link(href="/contactUs") Contact
-            form.d-flex.mt-3(role="search")
-              input.form-control.me-2(type="search", placeholder="Search")
-              button.btn.btn-outline-light(type="submit") Search
-
+                a.nav-link(href="/logout") Logout
     .container.mt-5.pt-5
       h1.text-center.mb-4 Update Stock
       form#myForm.p-4.shadow-lg.rounded.bg-light(

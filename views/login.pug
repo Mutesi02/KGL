@@ -5,30 +5,31 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Login
     // Bootstrap CSS
-    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css')
+    link(href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap', rel='stylesheet')
     link(rel='stylesheet', href='/css/login.css')
   body
-    .container.mt-5
-      .row.justify-content-center
-        .col-md-6.col-lg-5
-          .card.shadow
-            .card-body
-              h2#formTitle.text-center.mb-4.text-success Login
-              form#authForm(action="/login" method="post" onsubmit='validateSignUpForm(event)')
-                .mb-3
-                  label.form-label(for="fullName") Full Name
-                  input#name.form-control(type='text', name='fullName', )
-                  span.text-danger#name-error
-                .mb-3
-                  label.form-label(for="email") Email
-                  input#email.form-control(type='email', name='email', )
-                  span.text-danger#email-error
-                .mb-3
-                  label.form-label(for="password") Password
-                  input#password.form-control(type='password', name='password', )
-                  span.text-danger#password-error
-                button.btn.btn-custom-green.w-100(type='submit') Login
-              p.text-center.mt-3.text-muted Welcome to our page!
+    // Center content vertically
+    .d-flex.justify-content-center.align-items-center.min-vh-100
+      .col-md-6.col-lg-5
+        .card.shadow-lg.p-4
+          .card-body
+            h2#formTitle.text-center.mb-4 Login
+            form#authForm(action="/login" method="post" onsubmit='validateSignUpForm(event)')
+              .mb-3
+                label.form-label(for="fullName") Full Name
+                input#name.form-control(type='text', name='fullName')
+                span.text-danger#name-error
+              .mb-3
+                label.form-label(for="email") Email
+                input#email.form-control(type='email', name='email')
+                span.text-danger#email-error
+              .mb-3
+                label.form-label(for="password") Password
+                input#password.form-control(type='password', name='password')
+                span.text-danger#password-error
+              button.btn.btn-custom-green.w-100(type='submit') Login
+            p.text-center.mt-3.text-muted Welcome to our page!
 
     // Bootstrap Bundle with Popper.js
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js')

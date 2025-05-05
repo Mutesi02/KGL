@@ -1,20 +1,82 @@
 body {
-    background-color: #f4fff4;
-    font-family: "Segoe UI", sans-serif;
-  }
-  .btn-custom-green {
-    background-color: #004d00;
-    color: white;
-    border: none;
-  }
-  .btn-custom-green:hover {
-    opacity: 0.9;
-  }
-  .form-label {
-    font-weight: 500;
-    color: #004d00;
-  }
-  .card {
-    border: 1px solid #cce5cc;
-    border-radius: 12px;
-  }
+  background-color: #f4fff4;
+  font-family: 'Poppins', sans-serif;
+  background-image: url('/imgs/beans2jpg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #cce5cc;
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+#formTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #004d00;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #004d00;
+}
+
+input.form-control,
+select.form-select {
+  border-radius: 8px;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+input.form-control:focus,
+select.form-select:focus {
+  border-color: #004d00;
+  box-shadow: 0 0 5px rgba(0, 77, 0, 0.5);
+}
+
+input.form-control:hover,
+select.form-select:hover {
+  border-color: #004d00;
+  box-shadow: 0 0 5px rgba(0, 77, 0, 0.4);
+}
+
+.btn-custom-green {
+  background-color: #004d00;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom-green:hover {
+  background-color: #003300;
+  opacity: 0.95;
+}
+
+.text-muted {
+  color: #555 !important;
+  font-size: 0.9rem;
+}

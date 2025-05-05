@@ -1,20 +1,51 @@
 body {
-    background-color: #f4fff4;
-    font-family: "Segoe UI", sans-serif;
-  }
-  .btn-custom-green {
-    background-color: #004d00;
-    color: white;
-    border: none;
-  }
-  .btn-custom-green:hover {
-    opacity: 0.9;
-  }
-  .card {
-    border: 1px solid #cce5cc;
-    border-radius: 12px;
-  }
-  .form-label {
-    font-weight: 500;
-    color: #004d00;
-  }
+  background-color: #f4fff4;
+  font-family: 'Poppins', sans-serif;
+  background-image: url('/imgs/beans2jpg.jpg'); /* Ensure the image path is correct */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.btn-custom-green {
+  background-color: #004d00;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.btn-custom-green:hover {
+  opacity: 0.9;
+}
+
+.card {
+  border: 1px solid #cce5cc;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on text boxes (input fields) */
+input.form-control:hover, select.form-select:hover {
+  border-color: #004d00; /* Change border color on hover */
+  box-shadow: 0 0 5px rgba(0, 77, 0, 0.5); /* Add a green glow */
+}
+
+/* Hover effect on card */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-label {
+  font-weight: 500;
+  color: #004d00;
+}
+
+/* Styling the Login text */
+#formTitle {font-size: 2.5rem;
+  font-weight: 700;
+  color: #004d00; 
+  text-align: center;
+}
